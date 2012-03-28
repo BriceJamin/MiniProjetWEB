@@ -1,33 +1,17 @@
-/*
-Conserver les informations suivante pour chaque étudiant :
-? Classe (BTS SE OU IRIS)
-? Nom, prénom, date de naissance
-? N° de téléphone, portable
-? Adresse mail
-? Date d'entrée/sortie de l'établissement
-? Entreprise de stage
-? Parcours POST BTS
-? Un champ information libre.
-*/
+-- Détruit la bdd (pour les tests)
+DROP DATABASE IF EXISTS bdd_ent;
 
-
-DROP DATABASE IF EXISTS bdd_etudiant;
-
-CREATE DATABASE bdd_etudiant CHARACTER SET 'utf8';
-
-USE bdd_etudiant;
+CREATE DATABASE bdd_ent CHARACTER SET 'utf8';
+USE bdd_ent;
 
 /*
-	nomSection	le nom de sa section : BTS SE, IRIS
-	dateEntree	date d'entree dans l'etablissement
-	dateSortie	date de sortie de l'etablissement
-	info		champ d'information libre		
+	etudiant
+	Permet de stocker toutes les infos d'un étudiant
+	ayant étudié un jour au Lycée Benoit
 */
-
 CREATE TABLE etudiant
 (
 	id				INT AUTO_INCREMENT,
-	f_categorie_id	INT,
 	nomSection		VARCHAR(20)			NOT NULL,
 	nom				VARCHAR(40)			NOT NULL,
 	prenom			VARCHAR(40)			NOT NULL,
@@ -36,16 +20,35 @@ CREATE TABLE etudiant
 	telPortable		VARCHAR(20),
 	mail			VARCHAR(50)			NOT NULL,
 	dateEntree		DATETIME			NOT NULL,
-	dateSortie		DATETIME,
-	infoLibre		TEXT,
+	dateSortie		DATETIME,						-- date de sortie de l'etablissement
+	infoLibre		TEXT,							-- champ d'information libre
 	
 	PRIMARY KEY (id)
 	
 )ENGINE=INNODB;
 
+/*
+	section
+	Liste le nom des sections qu'a ou a eu le lycée Benoit
+*/
+CREATE TABLE section
+(
+	id				INT AUTO_INCREMENT,
+	nom				VARCHAR(40)	NOT NULL UNIQUE,
+	
+	PRIMARY KEY (id)
+	
+)ENGINE=INNODB;
+
+/*
+	parcours
+	Permet de stocker les infos du parcours (professionel) d'un eleve durant sa vie
+	Par exemple, si un etudiant effectue un stage, il peut le renseigner, en ajoutant
+	des informations sur la boite qui l'a embauché.
+*/
 CREATE TABLE parcours
 (
-	f_etudiant_id 	INT					NOT NULL,
+	id_etudiant 	INT					NOT NULL,
 	dateDebut		DATE				NOT NULL,
 	dateFin			DATE,
 	etablissement	VARCHAR(40)			NOT NULL,
@@ -63,6 +66,12 @@ CREATE TABLE parcours
 	
 )ENGINE=INNODB;
 
+/*
+	compte
+	Permet de stocker toutes les infos d'un compte.
+	Un compte est nécessaire pour se connecter, sans il est impossible d'accéder au
+	contenu du site.
+*/
 CREATE TABLE compte
 (
 	id					INT AUTO_INCREMENT,
@@ -76,10 +85,45 @@ CREATE TABLE compte
 	
 )ENGINE=INNODB;
 
+/*
+	categorie
+	Permet de regrouper des comptes par un nom.
+	Par exemple, il peut exister la categorie professeur, admin, eleve...
+	Un compte peut avoir zero ou plusieurs catégories.
+*/
 CREATE TABLE categorie
 (
 	id	INT,
-	nom	VARCHAR(40)
+	nom	VARCHAR(40),
 	
-	PRIMARY KEY (f_compte_id)
-)
+	PRIMARY KEY (id)
+	
+)ENGINE=INNODB;
+
+/*
+	compte_categorie
+	Fait le lien entre compte et categorie
+	C'est là qu'on voit quel compte appartient à quelle catégorie
+*/
+CREATE TABLE compte_categorie
+(
+	id_compte		INT,
+	id_categorie	INT,
+	
+	PRIMARY KEY(id_compte, id_categorie)
+	
+)ENGINE=INNODB;
+
+/*
+	Ajout des clefs etrangeres 
+*/
+
+alter table compte_categorie
+	add constraint FK_COMPTE_CATEGORIE_REFERENCE_COMPTE foreign key (id_compte)
+    references compte (id)
+    on delete restrict on update restrict;
+	
+alter table compte_categorie
+	add constraint FK_COMPTE_CATEGORIE_REFERENCE_CATEGORIE foreign key (id_categorie)
+    references categorie (id)
+    on delete restrict on update restrict;
