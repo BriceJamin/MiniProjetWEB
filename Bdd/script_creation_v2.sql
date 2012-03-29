@@ -18,12 +18,12 @@ CREATE TABLE etudiant
 	dateNaissance	DATETIME			NOT NULL,
 	telFixe			VARCHAR(20),
 	telPortable		VARCHAR(20),
-	mail			VARCHAR(50)			NOT NULL,
+	mail			VARCHAR(50),
 	dateEntree		DATETIME			NOT NULL,
 	dateSortie		DATETIME,						-- date de sortie de l'etablissement
 	infoLibre		TEXT,							-- champ d'information libre
 	
-	PRIMARY KEY (id)
+	PRIMARY KEY (nom, prenom, dateNaissance)
 	
 )ENGINE=INNODB;
 
@@ -48,6 +48,7 @@ CREATE TABLE section
 */
 CREATE TABLE parcours
 (
+	id				INT AUTO_INCREMENT,
 	id_etudiant 	INT					NOT NULL,
 	dateDebut		DATE				NOT NULL,
 	dateFin			DATE,
@@ -60,9 +61,7 @@ CREATE TABLE parcours
 	statut			VARCHAR(40),
 	infos 			TEXT
 	
-	/*
-		TODO : Lier parcours à etudiant
-	*/
+	
 	
 )ENGINE=INNODB;
 
@@ -118,12 +117,17 @@ CREATE TABLE compte_categorie
 	Ajout des clefs etrangeres 
 */
 
+alter table parcours
+	add constraint FK_PARCOURS_REFERENCE_ETUDIANT foreign key (id_etudiant),
+	references etudiant (id)
+	on delete cascade on update cascade;
+	
 alter table compte_categorie
 	add constraint FK_COMPTE_CATEGORIE_REFERENCE_COMPTE foreign key (id_compte)
     references compte (id)
-    on delete restrict on update restrict;
+    on delete cascade on update cascade;
 	
 alter table compte_categorie
 	add constraint FK_COMPTE_CATEGORIE_REFERENCE_CATEGORIE foreign key (id_categorie)
     references categorie (id)
-    on delete restrict on update restrict;
+    on delete cascade on update cascade;
