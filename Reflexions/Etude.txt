@@ -1,0 +1,34 @@
+Fonctionnalites :
+-----------------
+
+La proprietaire d'un compte doit pouvoir :
+- Se connecter
+- Ajouter ses infos
+- Modifier ses infos
+- Supprimer ses infos
+- Se deconnecter
+
+L'admin doit pouvoir :
+- Se connecter
+- Ajouter un eleve
+- Supprimer un eleve
+- Modifier un eleve :
+	- Lui ajouter des infos
+	- Lui modifier des infos
+	- Lui supprimer des infos
+- Se deconnecter
+
+
+Fichiers à créer :
+index.php 		: page par défaut du site. Se contenter d'inclure accueil.php
+accueil.php 	: permet à l'utilisateur de se connecter
+entrer.php		: verifie la validite des identifiants,  ouvre une session et la remplie, puis redirige vers ?
+quitter.php 	: ferme la session et redirige vers l'accueil
+filtrer.php		: detecte les internautes indésirables (non connectés, pas admin...) et les redirige
+
+
+msgInfos.php	: afficher des  messages d'infos (de bienvenue, d'aurevoir, d'erreur...)
+
+Créer une classe Eleve
+Créer une classe Admin
+Admin hérite de Eleve

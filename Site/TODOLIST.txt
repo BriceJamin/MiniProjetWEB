@@ -1,0 +1,17 @@
+Créer une classe Bdd, permettant d'effectuer toutes les requetes nécessaires
+Créer une classe Login
+Sécurisation des champs :
+	Chercher la technique permettant de gerer la reception d'un nombre quelconque de parametres
+	Créer une fonction securiser(), qui permet de securiser un nombre quelconque de champs reçus par formulaire, afin d'éviter les injections SQL.
+		Reçoit : Une multitude de paramètres (entrée - sortie)
+		Renvoie : Rien, mais la valeur de chacun des parametres reçus est modifiée
+	Remplacer la fonction securiser de connexion.php par cette derniere.
+Se renseigner sur les pointeurs ou references reçues en paramètres. 
+	
+Questions réponses :
+	Quand faut t-il sécuriser ? De suite, ou le plus tard possible ?
+		1-> Le plus tôt possible, comme ça on est sûr de ne pas oublier.
+		2-> Le plus tard possible, quand on a vraiment besoin d'utiliser les champs, pour éviter de sécuriser inutilement.
+		Choix du ?.
+
+	

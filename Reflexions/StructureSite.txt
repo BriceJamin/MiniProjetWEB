@@ -1,0 +1,28 @@
+index.php 		
+	Page par défaut du site. Inclut accueil.php
+	
+accueil.php		
+	Descriptif du site + Formulaire de connexion
+	
+connexion.php	
+	Reçoit les champs du formulaire de connexion
+	Interroge la BDD pour savoir si les identifiants de connexion sont correct
+	Redirige vers index.php si erroné
+	Sinon ouvre une session et la renseigne, puis redirige vers ? si correct
+
+administration.php
+	Page réservée à l'administrateur
+	Lien vers ajout des etudiants
+	Lien vers suppression des etudiants
+	Lien vers liste des etudiants
+	Lien vers profil d'un etudiant  
+
+?.php
+	Liste les actions qu'il est possible de faire
+	
+profil_etudiant.php
+	Affiche le profil d'un etudiant
+	Si l'etudiant est lié au compte, offre la possibilité de modifier ce profil
+	
+
+	
