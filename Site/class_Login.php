@@ -1,6 +1,9 @@
  <?php
 	class Login
 	{
+
+	// PRIVATE
+
 		private $nom;
 		private $mdp;
 		
@@ -10,6 +13,8 @@
 			$this->mdp = $mdp;			
 		}
 		
+	// PUBLIC
+
 		public function __construct()
 		{
 			switch(func_num_args())
@@ -22,6 +27,12 @@
 					exit("Login::__construct() : Nombre de paramètres incorrect");
 			}
 		}
+		
+		public function estCorrect()
+		{
+			
+		}
+		
 	}
  ?>
  
