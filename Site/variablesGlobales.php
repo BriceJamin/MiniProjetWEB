@@ -1,4 +1,6 @@
 <?php
+	$PAGE_PAR_DEFAUT = "accueil.php";
+	
 	if(!isset($DOCTYPE))
 		$DOCTYPE =
 			'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -19,4 +21,8 @@
 
 	if(!isset($PIED))
 		$PIED = '</body></html>';
+	
+	if(!isset($NBR_CHAR_MAX_PSEUDO))		$NBR_CHAR_MAX_PSEUDO=20;
+	if(!isset($NBR_CHAR_MAX_MDP))			$NBR_CHAR_MAX_MDP=40;
+	if(!isset($LONGUEUR_CHAMPS)) 			$LONGUEUR_CHAMPS=15;
 ?>
