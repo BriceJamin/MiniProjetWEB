@@ -1,4 +1,8 @@
 <?php
+	/*
+		Contient des fonctions qui peuvent s'avérer utiles
+		Seront peut être incluses ailleurs ou intégrées dans des classes... A voir
+	*/
 	function __autoload($className)
 	{
 		include 'class_'.$className.'.php';
