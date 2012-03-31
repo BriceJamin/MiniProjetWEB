@@ -21,12 +21,12 @@
 		}
 		else
 			// Redirection vers accueil avec message identifiants incorrects
-			header('Location:accueil.php?id=2');
+			header('Location:accueil.php?msg=2');
 	}
 	else
 		/*  
 			Le formulaire reçu est incorrect
 			Redirection vers page d'accueil avec message donnees reçues invalides.
 		*/
-		header('Location:accueil.php?id=3');
+		header('Location:accueil.php?msg=3');
 ?>
