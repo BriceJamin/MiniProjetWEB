@@ -10,8 +10,7 @@
 	// Ouverture d'une session pour savoir si la personne est connectée ou non
 	session_start();
 	
-	// TODO : Stocker le message de session dans cette variable :
-	$messageInfoSession = "";
+	$messageInfoSession = getMessageInfoSession();
 	
 	// Si l'utilisateur est déjà connecté, on le redirige vers la page par défaut
 	if(isset($_SESSION['estConnecte']))
@@ -60,9 +59,6 @@
 		$pseudo	= $_POST['pseudo'];
 		$mdp	= $_POST['mdp'];
 
-		
-		// TODO : Creer la fonction identifiantsCorrects($pseudo, $mdp)
-		
 		if(		empty($pseudo) || empty($mdp) 		 // Un des champs est vide
 			||	!identifiantsCorrects($pseudo, $mdp)) // Les identifiants sont incorrects
 		{
