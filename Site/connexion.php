@@ -42,7 +42,7 @@
 
 	// Pas défaut les champs du formulaire sont vides
 	$mdp	= "";
-	$pseudo = "";
+	$nom = "";
 	
 	// Par défaut il n'y a aucun message d'erreur de formulaire
 	$msgErreurFormulaire = "";
@@ -51,7 +51,7 @@
 	if(isset($_POST['seConnecter']))
 	{
 		// S'il manque au moins un champs, le formulaire n'est pas l'original
-		if(!isset($_POST['pseudo']) || !isset($_POST['mdp']))
+		if(!isset($_POST['nom']) || !isset($_POST['mdp']))
 		{
 			// Rechargement de la page
 			$nomDeCettePage = basename( $_SERVER['PHP_SELF'] );
@@ -60,11 +60,11 @@
 		}
 		
 		// Récupération des champs du formulaire
-		$pseudo	= $_POST['pseudo'];
+		$nom	= $_POST['nom'];
 		$mdp	= $_POST['mdp'];
 
-		if(		empty($pseudo) || empty($mdp) 		 // Un des champs est vide
-			||	!identifiantsCorrects($pseudo, $mdp)) // Les identifiants sont incorrects
+		if(		empty($nom) || empty($mdp) 		 // Un des champs est vide
+			||	!identifiantsCorrects($nom, $mdp)) // Les identifiants sont incorrects
 		{
 			$msgErreurFormulaire="Vos identifiants sont incorrects";
 			
@@ -89,7 +89,7 @@
 			$_SESSION['messageInfo'] = '
 				<p> 
 					Connexion effectuée avec succès.<br />
-					Bienvenue sur votre espace perso '.$pseudo.' !
+					Bienvenue sur votre espace perso '.$nom.' !
 				</p>
 				<hr />';
 		}
@@ -111,9 +111,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td> <label for="pseudo"> Pseudo :</label> </td>
+					<td> <label for="nom"> nom :</label> </td>
 					<td> 
-						<input type="text" name="pseudo" id="pseudo" size="'.$LONGUEUR_CHAMPS.'" maxlength="'.$NBR_CHAR_MAX_PSEUDO.'" value="'.$pseudo.'" /> 
+						<input type="text" name="nom" id="nom" size="'.$LONGUEUR_CHAMPS.'" maxlength="'.$NBR_CHAR_MAX_nom.'" value="'.$nom.'" /> 
 					</td>
 				</tr>
 				<tr>

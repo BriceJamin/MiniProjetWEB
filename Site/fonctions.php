@@ -45,10 +45,10 @@
 			or die('Echec de connexion à la base : '.mysql_error());
 	}
 	
-	function identifiantsCorrects($pseudo, $mdp)
+	function identifiantsCorrects($nom, $mdp)
 	{
 		// Securisation des champs pour eviter qu'ils soient exploités (injection SQL)
-		$pseudo = securiser($pseudo);
+		$nom = securiser($nom);
 		$mdp 	= securiser($mdp);
 		
 		// Cryptage du mdp car dans la bdd ils sont cryptés
@@ -58,9 +58,9 @@
 		connexionBdd();
 		
 		// Preparation de la requete
-		$requete='SELECT pseudo, mdp 
+		$requete='SELECT nom, mdp 
 			FROM compte 
-			WHERE pseudo LIKE "'.$pseudo.'" AND mdp LIKE "'.$mdp.'"';
+			WHERE nom LIKE "'.$nom.'" AND mdp LIKE "'.$mdp.'"';
 		
 		// Execution de la requete		
 		$result=mysql_query($requete)
@@ -70,7 +70,7 @@
 		$reponse = mysql_fetch_row($result);
 		
 		
-		// si ce (n'est pas vide), c'est que le couple (pseudo,mdp) a été trouvé => return true
+		// si ce (n'est pas vide), c'est que le couple (nom,mdp) a été trouvé => return true
 		return !empty($reponse); 
 	}
 ?>
