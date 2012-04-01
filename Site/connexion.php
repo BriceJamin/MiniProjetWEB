@@ -59,13 +59,7 @@
 		// Récupération des champs du formulaire
 		$pseudo	= $_POST['pseudo'];
 		$mdp	= $_POST['mdp'];
-		
-		// Securisation des champs pour eviter qu'ils soient exploités (injection SQL)
-		$pseudo = securiser($pseudo);
-		$mdp 	= securiser($mdp);
-		
-		// Cryptage du mdp car dans la bdd ils sont cryptés
-		$mdp = SHA1($mdp);
+
 		
 		// TODO : Creer la fonction identifiantsCorrects($pseudo, $mdp)
 		
