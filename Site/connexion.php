@@ -67,6 +67,8 @@
 		// Cryptage du mdp car dans la bdd ils sont cryptés
 		$mdp = SHA1($mdp);
 		
+		// TODO : Creer la fonction identifiantsCorrects($pseudo, $mdp)
+		
 		if(		empty($pseudo) || empty($mdp) 		 // Un des champs est vide
 			||	!identifiantsCorrects($pseudo, $mdp)) // Les identifiants sont incorrects
 		{

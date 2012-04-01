@@ -1,0 +1,4 @@
+Pour savoir si la personne est connectée ou non, je vais me servir d'une session.
+Donc quelque soit la page, je fais un session start en début de page, pour savoir s'il est connecté ou non, s'il a droit d'acces ou non sur cette page.
+Vu qu'il a toujours une session d'ouverte, j'en profite pour stocker tout ce que je veux faire transiter d'une page vers l'autre, c'est à dire les messages.
+Une page devra donc verifier à chaque fois s'il y a un message reçu à afficher, l'afficher, et supprimer ce message (pour éviter qu'il ne se raffiche sur une autre page).
