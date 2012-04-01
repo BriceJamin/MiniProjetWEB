@@ -113,7 +113,7 @@
 				<tr>
 					<td> <label for="nom"> nom :</label> </td>
 					<td> 
-						<input type="text" name="nom" id="nom" size="'.$LONGUEUR_CHAMPS.'" maxlength="'.$NBR_CHAR_MAX_nom.'" value="'.$nom.'" /> 
+						<input type="text" name="nom" id="nom" size="'.$LONGUEUR_CHAMPS.'" maxlength="'.$NBR_CHAR_MAX_NOM.'" value="'.$nom.'" /> 
 					</td>
 				</tr>
 				<tr>

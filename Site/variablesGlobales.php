@@ -22,7 +22,7 @@
 	if(!isset($PIED))
 		$PIED = '</body></html>';
 	
-	if(!isset($NBR_CHAR_MAX_PSEUDO))		$NBR_CHAR_MAX_PSEUDO=20;
+	if(!isset($NBR_CHAR_MAX_NOM))			$NBR_CHAR_MAX_NOM=20;
 	if(!isset($NBR_CHAR_MAX_MDP))			$NBR_CHAR_MAX_MDP=40;
 	if(!isset($LONGUEUR_CHAMPS)) 			$LONGUEUR_CHAMPS=15;
 ?>
