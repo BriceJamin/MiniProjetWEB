@@ -51,7 +51,7 @@
 	if(isset($_POST['seConnecter']))
 	{
 		// S'il manque au moins un champs, le formulaire n'est pas l'original
-		if(!isset($_POST['nom']) || !isset($_POST['mdp']))
+		if(!isset($_POST['pseudo']) || !isset($_POST['mdp']))
 		{
 			// Rechargement de la page
 			$nomDeCettePage = basename( $_SERVER['PHP_SELF'] );
