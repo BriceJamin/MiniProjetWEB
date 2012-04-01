@@ -10,6 +10,10 @@
 	// Ouverture d'une session pour savoir si la personne est connectée ou non
 	session_start();
 	
+	// Inclusion du fichiers contenant toutes les fonctions
+	include('fonctions.php');
+	
+	// Recuperation d'un eventuel message à afficher
 	$messageInfoSession = getMessageInfoSession();
 	
 	// Si l'utilisateur est déjà connecté, on le redirige vers la page par défaut
