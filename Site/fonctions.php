@@ -17,6 +17,21 @@
 		return $aSecuriser;
 	}
 	
+	function getMessageInfoSession()
+	{
+		if(isset($_SESSION['messageInfo']))
+		{
+			$messageInfoSession = $_SESSION['messageInfo'];
+			
+			// La variable a joué son role, on peut maintenant la detruire
+			unset($_SESSION['messageInfo']);
+		}
+		else
+			$messageInfoSession = "";
+			
+		return $messageInfoSession;
+	}
+	
 	function connexionBdd()
 	{
 		$base="bdd_ent";
