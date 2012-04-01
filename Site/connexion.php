@@ -10,6 +10,9 @@
 	// Ouverture d'une session pour savoir si la personne est connectée ou non
 	session_start();
 	
+	// TODO : Stocker le message de session dans cette variable :
+	$messageInfoSession = "";
+	
 	// Si l'utilisateur est déjà connecté, on le redirige vers la page par défaut
 	if(isset($_SESSION['estConnecte']))
 	{
@@ -35,21 +38,21 @@
 	include("variablesGlobales.php");
 
 	// Pas défaut les champs du formulaire sont vides
-	$mdp	= '';
-	$pseudo = '';
+	$mdp	= "";
+	$pseudo = "";
 	
 	// Par défaut il n'y a aucun message d'erreur de formulaire
-	$msgErreurFormulaire = '';
+	$msgErreurFormulaire = "";
 	
 	// Si le formulaire de connexion a été envoyé
 	if(isset($_POST['seConnecter']))
 	{
 		// S'il manque au moins un champs, le formulaire n'est pas l'original
-		if(!isset('nom') || !isset('mdp'))
-		{			
+		if(!isset($_POST['nom']) || !isset($_POST['mdp']))
+		{
 			// Rechargement de la page
 			$nomDeCettePage = basename( $_SERVER['PHP_SELF'] );
-			header('Location:'.$nomDeCettePage);
+			header('Location:connexion.php');
 			exit();
 		}
 		
@@ -65,7 +68,7 @@
 		$mdp = SHA1($mdp);
 		
 		if(		empty($pseudo) || empty($mdp) 		 // Un des champs est vide
-			||	!identifiantsCorrects($pseudo, $mdp) // Les identifiants sont incorrects
+			||	!identifiantsCorrects($pseudo, $mdp)) // Les identifiants sont incorrects
 		{
 			$msgErreurFormulaire="Vos identifiants sont incorrects";
 			
@@ -131,4 +134,9 @@
 			</p>
 		</form>
 		</fieldset> ';
+		
+	$BODY .= $messageInfoSession.$titrePage.$formulaire;
+	$page_html = $DOCTYPE.$HEAD.$BODY.$PIED;
+	
+	echo $page_html;
 ?>
