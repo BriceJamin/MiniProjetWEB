@@ -11,7 +11,7 @@
 	function securiser($aSecuriser)
 	{
 		if(!empty($aSecuriser))
-			$aSecuriser = mysql_real_escape_string(htmlspecialchars($parametreASecuriser))
+			$aSecuriser = mysql_real_escape_string(htmlspecialchars($aSecuriser))
 					or die("error : mysql_real_escape_string. Retourne $aSecuriser".mysql_error());
 		
 		return $aSecuriser;
