@@ -1,4 +1,4 @@
--- DÈtruit la bdd (pour les tests)
+-- D√©truit la bdd (pour les tests)
 DROP DATABASE IF EXISTS bdd_ent;
 
 CREATE DATABASE bdd_ent CHARACTER SET 'utf8';
@@ -6,8 +6,8 @@ USE bdd_ent;
 
 /*
 	etudiant
-	Permet de stocker toutes les infos d'un Ètudiant
-	ayant ÈtudiÈ un jour au LycÈe Benoit
+	Permet de stocker toutes les infos d'un √©tudiant
+	ayant √©tudi√© un jour au Lyc√©e Benoit
 */
 CREATE TABLE etudiant
 (
@@ -29,7 +29,7 @@ CREATE TABLE etudiant
 
 /*
 	section
-	Liste le nom des sections qu'a ou a eu le lycÈe Benoit
+	Liste le nom des sections qu'a ou a eu le lyc√©e Benoit
 */
 CREATE TABLE section
 (
@@ -44,7 +44,7 @@ CREATE TABLE section
 	parcours
 	Permet de stocker les infos du parcours (professionel) d'un eleve durant sa vie
 	Par exemple, si un etudiant effectue un stage, il peut le renseigner, en ajoutant
-	des informations sur la boite qui l'a embauchÈ.
+	des informations sur la boite qui l'a embauch√©.
 */
 CREATE TABLE parcours
 (
@@ -68,7 +68,7 @@ CREATE TABLE parcours
 /*
 	compte
 	Permet de stocker toutes les infos d'un compte.
-	Un compte est nÈcessaire pour se connecter, sans il est impossible d'accÈder au
+	Un compte est n√©cessaire pour se connecter, sans il est impossible d'acc√©der au
 	contenu du site.
 */
 CREATE TABLE compte
@@ -92,7 +92,7 @@ VALUES
 	categorie
 	Permet de regrouper des comptes par un nom.
 	Par exemple, il peut exister la categorie professeur, admin, eleve...
-	Un compte peut avoir zero ou plusieurs catÈgories.
+	Un compte peut avoir zero ou plusieurs cat√©gories.
 */
 CREATE TABLE categorie
 (
@@ -106,7 +106,7 @@ CREATE TABLE categorie
 /*
 	compte_categorie
 	Fait le lien entre compte et categorie
-	C'est l‡ qu'on voit quel compte appartient ‡ quelle catÈgorie
+	C'est l√† qu'on voit quel compte appartient √† quelle cat√©gorie
 */
 CREATE TABLE compte_categorie
 (

@@ -1,7 +1,7 @@
  <?php
 	/*
-		A l'instantiation de la Bdd, la connexion à la BDD est effectuée.
-		Cette connexion ne doit êre effectuée qu'une seule fois.
+		A l'instantiation de la Bdd, la connexion Ã  la BDD est effectuÃ©e.
+		Cette connexion ne doit Ãªre effectuÃ©e qu'une seule fois.
 		Il faut donc appliquer le pattern singleton.
 	*/
 	
@@ -23,7 +23,7 @@
 					break;
 					
 				default:
-					die("Bdd::__construct() : Nombre de paramètres incorrect");
+					die("Bdd::__construct() : Nombre de paramÃ¨tres incorrect");
 			}
 		}
 	}

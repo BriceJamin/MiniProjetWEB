@@ -1,17 +1,17 @@
-CrÈer une classe Bdd, permettant d'effectuer toutes les requetes nÈcessaires
-CrÈer une classe Login
-SÈcurisation des champs :
+Cr√©er une classe Bdd, permettant d'effectuer toutes les requetes n√©cessaires
+Cr√©er une classe Login
+S√©curisation des champs :
 	Chercher la technique permettant de gerer la reception d'un nombre quelconque de parametres
-	CrÈer une fonction securiser(), qui permet de securiser un nombre quelconque de champs reÁus par formulaire, afin d'Èviter les injections SQL.
-		ReÁoit : Une multitude de paramËtres (entrÈe - sortie)
-		Renvoie : Rien, mais la valeur de chacun des parametres reÁus est modifiÈe
+	Cr√©er une fonction securiser(), qui permet de securiser un nombre quelconque de champs re√ßus par formulaire, afin d'√©viter les injections SQL.
+		Re√ßoit : Une multitude de param√®tres (entr√©e - sortie)
+		Renvoie : Rien, mais la valeur de chacun des parametres re√ßus est modifi√©e
 	Remplacer la fonction securiser de connexion.php par cette derniere.
-Se renseigner sur les pointeurs ou references reÁues en paramËtres. 
+Se renseigner sur les pointeurs ou references re√ßues en param√®tres. 
 	
-Questions rÈponses :
-	Quand faut t-il sÈcuriser ? De suite, ou le plus tard possible ?
-		1-> Le plus tÙt possible, comme Áa on est s˚r de ne pas oublier.
-		2-> Le plus tard possible, quand on a vraiment besoin d'utiliser les champs, pour Èviter de sÈcuriser inutilement.
+Questions r√©ponses :
+	Quand faut t-il s√©curiser ? De suite, ou le plus tard possible ?
+		1-> Le plus t√¥t possible, comme √ßa on est s√ªr de ne pas oublier.
+		2-> Le plus tard possible, quand on a vraiment besoin d'utiliser les champs, pour √©viter de s√©curiser inutilement.
 		Choix du ?.
 
 	

@@ -1,8 +1,8 @@
 Classe (BTS SE OU IRIS) 
-?  Nom, prénom, date de naissance 
-?  N° de téléphone, portable 
+?  Nom, prenom, date de naissance 
+?  No de telephone, portable 
 ?  Adresse mail 
-?  Date d'entrée/sortie de l'établissement 
+?  Date d'entree/sortie de l'etablissement 
 ?  Entreprise de stage 
 ?  Parcours POST BTS 
 ?  Un champ information libre. 

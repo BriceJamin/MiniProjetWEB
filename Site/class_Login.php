@@ -24,7 +24,7 @@
 					break;
 					
 				default:
-					exit("Login::__construct() : Nombre de paramètres incorrect");
+					exit("Login::__construct() : Nombre de paramÃ¨tres incorrect");
 			}
 		}
 		

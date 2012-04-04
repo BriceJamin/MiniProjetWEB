@@ -1,7 +1,7 @@
 <?php
 /*
 	Page recevant les identifiants de connexion (nom et mdp) 
-	Elle les vérifie et redirige le client vers une page de bienvenue ou d'erreur
+	Elle les vÃ©rifie et redirige le client vers une page de bienvenue ou d'erreur
 */
 	
 	if(isset($_POST['nom']) && isset($_POST['mdp']))
@@ -25,8 +25,8 @@
 	}
 	else
 		/*  
-			Le formulaire reçu est incorrect
-			Redirection vers page d'accueil avec message donnees reçues invalides.
+			Le formulaire reÃ§u est incorrect
+			Redirection vers page d'accueil avec message donnees reÃ§ues invalides.
 		*/
 		header('Location:accueil.php?msg=3');
 ?>

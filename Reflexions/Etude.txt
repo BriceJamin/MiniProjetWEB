@@ -19,16 +19,16 @@ L'admin doit pouvoir :
 - Se deconnecter
 
 
-Fichiers à créer :
-index.php 		: page par défaut du site. Se contenter d'inclure accueil.php
-accueil.php 	: permet à l'utilisateur de se connecter
+Fichiers Ã  crÃ©er :
+index.php 		: page par dÃ©faut du site. Se contenter d'inclure accueil.php
+accueil.php 	: permet Ã  l'utilisateur de se connecter
 entrer.php		: verifie la validite des identifiants,  ouvre une session et la remplie, puis redirige vers ?
 quitter.php 	: ferme la session et redirige vers l'accueil
-filtrer.php		: detecte les internautes indésirables (non connectés, pas admin...) et les redirige
+filtrer.php		: detecte les internautes indÃ©sirables (non connectÃ©s, pas admin...) et les redirige
 
 
 msgInfos.php	: afficher des  messages d'infos (de bienvenue, d'aurevoir, d'erreur...)
 
-Créer une classe Eleve
-Créer une classe Admin
-Admin hérite de Eleve
+CrÃ©er une classe Eleve
+CrÃ©er une classe Admin
+Admin hÃ©rite de Eleve
