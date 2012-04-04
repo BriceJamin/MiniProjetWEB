@@ -11,7 +11,7 @@ USE bdd_ent;
 */
 CREATE TABLE etudiant
 (
-	id				INT AUTO_INCREMENT,
+	id_etudiant		INT AUTO_INCREMENT,
 	nomSection		VARCHAR(20)			NOT NULL,
 	nom				VARCHAR(40)			NOT NULL,
 	prenom			VARCHAR(40)			NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE etudiant
 	dateSortie		DATETIME,						-- date de sortie de l'etablissement
 	infoLibre		TEXT,							-- champ d'information libre
 	
-	PRIMARY KEY (nom, prenom, dateNaissance)
+	PRIMARY KEY (id_etudiant)
 	
 )ENGINE=INNODB;
 
@@ -33,10 +33,10 @@ CREATE TABLE etudiant
 */
 CREATE TABLE section
 (
-	id				INT AUTO_INCREMENT,
+	id_section		INT AUTO_INCREMENT,
 	nom				VARCHAR(40)	NOT NULL UNIQUE,
 	
-	PRIMARY KEY (id)
+	PRIMARY KEY (id_section)
 	
 )ENGINE=INNODB;
 
@@ -48,7 +48,7 @@ CREATE TABLE section
 */
 CREATE TABLE parcours
 (
-	id				INT AUTO_INCREMENT,
+	id_parcours		INT AUTO_INCREMENT,
 	id_etudiant 	INT					NOT NULL,
 	dateDebut		DATE				NOT NULL,
 	dateFin			DATE,
@@ -59,9 +59,9 @@ CREATE TABLE parcours
 	adresse			VARCHAR(40),
 	tel				VARCHAR(20),
 	statut			VARCHAR(40),
-	infos 			TEXT
+	infos 			TEXT,
 	
-	
+	PRIMARY KEY(id_parcours)
 	
 )ENGINE=INNODB;
 
@@ -73,16 +73,20 @@ CREATE TABLE parcours
 */
 CREATE TABLE compte
 (
-	id					INT AUTO_INCREMENT,
+	id_compte			INT AUTO_INCREMENT,
 	nom					VARCHAR(40),
 	mdp					VARCHAR(40),
 	mail				VARCHAR(50),
 	dateCreation		DATETIME,
 	dateDerniereVisite	DATETIME,
 	
-	PRIMARY KEY (id)
+	PRIMARY KEY (id_compte)
 	
 )ENGINE=INNODB;
+
+INSERT INTO compte (nom, mdp, mail, dateCreation, dateDerniereVisite) 
+VALUES
+	("JAMIN", SHA1("Brice"), "brice.jamin@hotmail.fr", NOW(), NOW());
 
 /*
 	categorie
@@ -92,10 +96,10 @@ CREATE TABLE compte
 */
 CREATE TABLE categorie
 (
-	id	INT,
-	nom	VARCHAR(40),
+	id_categorie INT,
+	nom			 VARCHAR(40),
 	
-	PRIMARY KEY (id)
+	PRIMARY KEY (id_categorie)
 	
 )ENGINE=INNODB;
 
@@ -118,16 +122,16 @@ CREATE TABLE compte_categorie
 */
 
 alter table parcours
-	add constraint FK_PARCOURS_REFERENCE_ETUDIANT foreign key (id_etudiant),
-	references etudiant (id)
-	on delete cascade on update cascade;
+	add constraint FK_PARCOURS_REFERENCE_ETUDIANT foreign key (id_etudiant)
+	references etudiant (id_etudiant);
+	-- on delete cascade on update cascade;
 	
 alter table compte_categorie
 	add constraint FK_COMPTE_CATEGORIE_REFERENCE_COMPTE foreign key (id_compte)
-    references compte (id)
-    on delete cascade on update cascade;
+    references compte (id_compte);
+    -- on delete cascade on update cascade;
 	
 alter table compte_categorie
 	add constraint FK_COMPTE_CATEGORIE_REFERENCE_CATEGORIE foreign key (id_categorie)
-    references categorie (id)
-    on delete cascade on update cascade;
+    references categorie (id_categorie);
+    -- on delete cascade on update cascade;
