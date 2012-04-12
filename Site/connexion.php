@@ -7,13 +7,24 @@
 		Si les identifiants sont bons elle crée la variable $_SESSION['estConnecte'] et redirige vers $PAGE_PAR_DEFAUT
 	*/
 
-	// Ouverture d'une session pour savoir si la personne est connectée ou non
-	session_start();
+	/*
+		$HEAD (variable globale) utilise les variables $TITLE et $STYLE
+		Si on ne les crée pas, elles seront vides
+		Comme on souhaite que la page ait un titre, on l'initialise avant l'inclusion
+			des variales globales.
+	*/
+	$TITLE = "Connexion";
+
+	// Inclusion des variables globales APRES initialisation des variables globales
+	include("variablesGlobales.php");
 	
 	// Inclusion du fichiers contenant toutes les fonctions
 	include('fonctions.php');
 	
-	// Recuperation d'un eventuel message à afficher
+	// Ouverture d'une session pour savoir si la personne est connectée ou non
+	session_start();
+	
+	// Recuperation dans la session d'un eventuel message à afficher
 	$messageInfoSession = getMessageInfoSession();
 	
 	// Si l'utilisateur est déjà connecté, on le redirige vers la page par défaut
@@ -29,17 +40,6 @@
 		exit;
 	}
 	
-	/*
-		$HEAD (variable globale) utilise les variables $TITLE et $STYLE
-		Si on ne les crée pas, elles seront vides
-		Comme on souhaite que la page ait un titre, on l'initialise avant l'inclusion
-			des variales globales.
-	*/
-	$TITLE = "Connexion";
-	
-	// Inclusion des variables globales APRES initialisation des variables globales
-	include("variablesGlobales.php");
-
 	// Pas défaut les champs du formulaire sont vides
 	$mdp	= "";
 	$nom = "";
@@ -76,14 +76,22 @@
 		{
 			/*
 				Variable qui prouve que l'utilisateur est connecte 
-				Sa valeur n'a pas d'importance, qu'elle existe est suffisant
-				Car quand l'utilisateur est déconnecté cette variable est detruite
+				Sa valeur n'a pas d'importance, qu'elle existe est suffisant, car
+					lorsque l'utilisateur est déconnecté cette variable est detruite
 			*/
 			$_SESSION['estConnecte'] = true;
 			
-			// TODO : Récupération des infos de la personne liées à ce compte
-			// TODO : Stockages des infos recuperees dans $_SESSION
-			// TODO : Modifier le message de bienvenue par "Bienvenue [...] <prenom> <nom> !"
+// TODO : Actualiser la date de dernière visite
+			actualiserLastVisite();
+// TODO : Récupération des infos liées à ce compte
+			$infosCompte = getInfosCompte();
+			
+			
+// TODO : Stockage de ces infos vers $_SESSION
+// TODO : Modifier le message de bienvenue par "Bienvenue [...] <prenom> <nom> !"
+// TODO : Récupération de la catégorie du compte (admin ?)
+// TODO : Stockage de la catégorie vers $_SESSION
+// TODO : Determiner la destination de redirection en fonction de la catégorie (accueil.php, profil.php ?)
 			
 			// Pour afficher dans $PAGE_PAR_DEFAUT un message informant que la connexion a réussi
 			$_SESSION['messageInfo'] = '
@@ -92,11 +100,11 @@
 					Bienvenue sur votre espace perso '.$nom.' !
 				</p>
 				<hr />';
+			header("Location:".$PAGE_PAR_DEFAUT);
 		}
 	}
 	
 	$titrePage = '<h1>Connexion</h1>';
-	$pourMembre = "<p>Connectez vous avec vos identifiants.</p>";
 	$formulaire = '
 		<fieldset> <legend>Se connecter</legend>
 		<form action="connexion.php" method="post" >
