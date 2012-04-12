@@ -34,15 +34,20 @@
 	
 	function connexionBdd()
 	{
-		$base		="bdd_ent";
-		$server		="localhost";
-		$user		="user_ent";
-		$password	="mdp_ent";
-		
-		$id=mysql_connect($server, $user, $password)
-			or die('Echec de connexion au serveur : '.mysql_error());
-		mysql_select_db($base)
-			or die('Echec de connexion à la base : '.mysql_error());
+		if($GLOBALS['BDD_CONNECTEE'] == false)
+		{
+			$base		="bdd_ent";
+			$server		="localhost";
+			$user		="user_ent";
+			$password	="mdp_ent";
+
+			$id=mysql_connect($server, $user, $password)
+				or die('Echec de connexion au serveur : '.mysql_error());
+			mysql_select_db($base)
+				or die('Echec de connexion à la base : '.mysql_error());
+
+			$BDD_CONNECTEE = true;
+		}
 	}
 	
 	function identifiantsCorrects($nom, $mdp)
